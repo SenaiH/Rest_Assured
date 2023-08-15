@@ -13,6 +13,8 @@ import java.util.List;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class P02_HrWithJsonPath extends HrTestBase {
 
     @DisplayName("GET all /countries")
@@ -86,14 +88,40 @@ public class P02_HrWithJsonPath extends HrTestBase {
 
 
     }
+    @DisplayName("GET Locations")
+    @Test
+    public void task3(){
+        Response response = given().accept(ContentType.JSON).get("/locations");
 
+       //
+        // response.prettyPrint();
+
+        assertEquals(200,response.statusCode());
+        assertEquals("application/json",response.contentType());
+
+        JsonPath jsonPath = response.jsonPath();
+
+        String City = jsonPath.getString("items[1].city");
+        System.out.println(City);
+
+        String LastCity = jsonPath.getString("items[-1].city");
+        System.out.println(LastCity);
+
+        List<String> AllIds = jsonPath.getList("items.country_id");
+        System.out.println(AllIds);
+
+        List<Object> CityUKId = jsonPath.getList("items.findAll {it.country_id=='UK'}.city");
+        System.out.println(CityUKId);
+
+
+    }
         /*
 
     TASK
     Given
              accept type is application/json
      When
-             user sends get request to /locaitons
+             user sends get request to /locations
      Then
              response status code must be 200
              content type equals to application/json

@@ -77,6 +77,14 @@ public class P03_CydeoTrainingAPITests extends CydeoTestBase {
 
     }
 
+    @DisplayName("Get/Student")
+    @Test
+    public void test2(){
+        Response response = given().accept(ContentType.JSON).and().pathParam("batch", 22).when().get("/student/batch/{batch}");
+
+       // response.prettyPrint();
+        JsonPath jsonPath = response.jsonPath();
+
        /*
 
     TASK
@@ -88,6 +96,13 @@ public class P03_CydeoTrainingAPITests extends CydeoTestBase {
     And Date header is exist
     And Server header is envoy
     And verify all the batch number is 22
-     */
 
+*/
+        assertEquals(200,response.statusCode());
+        assertEquals("application/json;charset=UTF-8",response.contentType());
+        assertTrue(response.headers().hasHeaderWithName("Date"));
+        assertEquals("envoy",response.header("Server"));
+        assertEquals(22,jsonPath.getInt("students[0].batch"));
+
+}
 }
