@@ -10,4 +10,5 @@ public abstract class HrTestBase {
         RestAssured.baseURI = "http://54.221.138.135:1000/ords/hr";
         //MyIpAddress:1000/ords/hr
     }
+
 }
