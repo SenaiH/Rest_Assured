@@ -2,12 +2,22 @@ package com.cydeo.day06;
 
 import com.cydeo.pojo.Employee;
 import com.cydeo.pojo.Region;
+import com.cydeo.pojo.Regions;
 import com.cydeo.utilities.HrTestBase;
+import com.sun.org.apache.xerces.internal.util.PropertyState;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.get;
+import java.util.Arrays;
+import java.util.List;
+
+import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
+import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 
 public class P03_HRDeserializationPOJO extends HrTestBase {
     @DisplayName("GET regions to desserializate to POJO - LOMBOK -JSON PROPERTY")
@@ -47,19 +57,5 @@ public class P03_HRDeserializationPOJO extends HrTestBase {
     }
 
 
-
-        /*
-    TASK
-
-    Given accept is application/json
-    When send request  to /regions endpoint
-    Then status should be 200
-            verify that region ids are 1,2,3,4
-            verify that regions names Europe ,Americas , Asia, Middle East and Africa
-            verify that count is 4
-        -- Create Regions POJO
-        -- And ignore field that you dont need
-
-     */
 
 }

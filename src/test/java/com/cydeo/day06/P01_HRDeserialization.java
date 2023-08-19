@@ -71,6 +71,7 @@ public class P01_HRDeserialization extends HrTestBase {
 
         //we want to get href from first location what we need to do ?
         List<Map<String,Object>> links = (List<Map<String, Object>>) allLocationsMap.get(0).get("links");
+        System.out.println(allLocationsMap.get(0).get("links"));
         System.out.println("links = " + links);
         System.out.println("links.get(0).get(\"href\") = " + links.get(0).get("href"));
     }
