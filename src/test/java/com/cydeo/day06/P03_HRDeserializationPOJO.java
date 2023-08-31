@@ -4,7 +4,7 @@ import com.cydeo.pojo.Employee;
 import com.cydeo.pojo.Region;
 import com.cydeo.pojo.Regions;
 import com.cydeo.utilities.HrTestBase;
-import com.sun.org.apache.xerces.internal.util.PropertyState;
+//import com.sun.org.apache.xerces.internal.util.PropertyState;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
+//import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
