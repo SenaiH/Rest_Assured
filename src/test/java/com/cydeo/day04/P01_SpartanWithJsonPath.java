@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class P01_SpartanWithJsonPath extends SpartanTestBase {
-/*
+ /*
      Given accept type is json
      And path param id is 10
      When user sends a get request to "api/spartans/{id}"
